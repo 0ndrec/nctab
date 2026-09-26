@@ -16,7 +16,7 @@ byte for byte.
 
 ## Demo
 
-<video src="content/nctab.mp4" controls muted width="100%"></video>
+<video src="content/nctab.mp4" controls muted width="100%" playsinline preload="metadata"></video>
 
 If the player does not load, [watch the demo video](content/nctab.mp4).
 
