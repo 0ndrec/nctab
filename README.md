@@ -20,13 +20,6 @@ byte for byte.
 
 If the player does not load, [watch the demo video](content/nctab.mp4).
 
-## Status
-
-Stages 0 to 3 of [PLAN.md](PLAN.md) are done: the parser, machine profiles, all
-code transforms, search and replace, validation, NC-aware diff, the TUI editor
-and snippets. Packaging to PyPI and DNC sending are still to come.
-
-The interface is English only.
 
 ## Editor
 
