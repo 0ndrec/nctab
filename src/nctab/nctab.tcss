@@ -1,0 +1,157 @@
+/* nctab TUI layout (goal.md §5.2) */
+
+Screen {
+    layers: base overlay;
+}
+
+#main {
+    height: 1fr;
+}
+
+#side {
+    width: 30;
+    min-width: 18;
+    border-right: solid $panel-lighten-2;
+    background: $surface;
+}
+
+#side ContentSwitcher {
+    height: 1fr;
+}
+
+#outline, #explorer {
+    height: 1fr;
+    background: $surface;
+    padding: 0;
+}
+
+#editor-pane {
+    width: 1fr;
+    min-width: 40;
+}
+
+#editor {
+    height: 1fr;
+    border: none;
+}
+
+#inspector {
+    width: 30;
+    min-width: 18;
+    border-left: solid $panel-lighten-2;
+    background: $surface;
+    padding: 0 1;
+}
+
+#inspector Static {
+    margin-bottom: 1;
+}
+
+#status {
+    height: 1;
+    background: $panel;
+    color: $text-muted;
+    padding: 0 1;
+}
+
+/* ----------------------------------------------------------------- dialogs */
+
+.dialog {
+    width: 64;
+    max-width: 90%;
+    height: auto;
+    max-height: 90%;
+    padding: 1 2;
+    background: $surface;
+    border: thick $primary;
+}
+
+.dialog-wide {
+    width: 88;
+}
+
+.dialog-title {
+    text-style: bold;
+    color: $accent;
+    margin-bottom: 1;
+}
+
+.dialog-hint {
+    color: $text-muted;
+    margin-top: 1;
+}
+
+.dialog-row {
+    height: auto;
+    align-vertical: middle;
+    margin-top: 1;
+}
+
+.dialog-label {
+    width: auto;
+    padding: 1 1 0 0;
+}
+
+.narrow {
+    width: 14;
+}
+
+ModalScreen {
+    align: center middle;
+    background: $background 60%;
+}
+
+#find-hints, #rep-hints {
+    height: 10;
+    margin-top: 1;
+}
+
+#tr-fields {
+    height: auto;
+    max-height: 14;
+}
+
+/* -------------------------------------------------------- find and replace */
+
+/* A known box rather than height:auto, so the buttons cannot be pushed off the
+   bottom; the result table takes whatever is left. */
+.dialog-search {
+    width: 100;
+    max-width: 96%;
+    height: 90%;
+    max-height: 40;
+}
+
+.dialog-search .dialog-row {
+    margin-top: 0;
+    height: auto;
+}
+
+#sd-mode {
+    width: 20;
+}
+
+#sd-query, #sd-to {
+    width: 1fr;
+}
+
+#sd-address, #sd-value {
+    width: 26;
+}
+
+#sd-summary {
+    width: 1fr;
+    color: $text-muted;
+    padding: 1 1 0 1;
+}
+
+#sd-results {
+    height: 1fr;
+    min-height: 3;
+    margin-top: 1;
+}
+
+.tiny {
+    min-width: 7;
+    width: 7;
+}

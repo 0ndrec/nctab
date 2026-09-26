@@ -1,0 +1,33 @@
+id = "turn-header"
+title = "Turning program header"
+description = "Speed clamp, tool and offset, constant surface speed."
+profile = "fanuc-turn"
+body = """
+G21 G40 G97 G99
+G50 S{SMAX}
+T{T}
+G96 S{V} M03
+"""
+
+[[fields]]
+name = "T"
+label = "Tool and offset"
+type = "int"
+min = 101
+max = 9999
+default = 101
+format = "04d"
+
+[[fields]]
+name = "SMAX"
+label = "Speed limit"
+type = "int"
+min = 1
+default = 2500
+
+[[fields]]
+name = "V"
+label = "Surface speed"
+type = "int"
+min = 1
+default = 180

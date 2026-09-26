@@ -1,0 +1,14 @@
+id = "safe-retract"
+title = "Safe retract"
+description = "Cancel compensation and pull the tool clear."
+body = """
+G40
+G00 Z{Z}
+M09
+"""
+
+[[fields]]
+name = "Z"
+label = "Retract height"
+type = "float"
+default = 50.0

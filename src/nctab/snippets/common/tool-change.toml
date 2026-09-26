@@ -1,0 +1,29 @@
+# Top-level keys must precede [[fields]]: in TOML every bare key after an
+# array-of-tables header belongs to that table, not to the document.
+id = "tool-change"
+title = "Tool change"
+description = "Retract, change the tool, apply length offset and start the spindle."
+body = """
+M05
+G28 G91 Z0
+G90
+T{T} M06
+G43 H{T} Z50.
+S{S} M03
+"""
+
+[[fields]]
+name = "T"
+label = "Tool"
+type = "int"
+min = 1
+max = 99
+default = 1
+
+[[fields]]
+name = "S"
+label = "Spindle speed"
+type = "int"
+min = 1
+max = 60000
+default = 2000

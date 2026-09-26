@@ -1,0 +1,59 @@
+id = "generic-iso"
+label = "Generic ISO 6983 G-code"
+block_number = "N"
+comment = [";", "()"]
+program_delimiters = ["%"]
+axes = ["X", "Y", "Z", "A", "B", "C", "U", "V", "W"]
+arc_ijk = true
+arc_r = true
+tool_word = "T"
+length_comp = "H"
+radius_comp = "D"
+feed = "F"
+spindle = "S"
+incremental = "G91"
+absolute = "G90"
+planes = { G17 = "XY", G18 = "ZX", G19 = "YZ" }
+toolchange_patterns = ["T{num}", "M06"]
+skip_address = "/"
+case = "upper"
+decimal_sep = "."
+units = "mm"
+digits = 3
+
+[gcodes]
+G00 = "Rapid positioning"
+G01 = "Linear interpolation"
+G02 = "Circular interpolation CW"
+G03 = "Circular interpolation CCW"
+G04 = "Dwell"
+G17 = "XY plane"
+G18 = "ZX plane"
+G19 = "YZ plane"
+G20 = "Inch input"
+G21 = "Metric input"
+G28 = "Return to reference position"
+G40 = "Cutter compensation cancel"
+G41 = "Cutter compensation left"
+G42 = "Cutter compensation right"
+G43 = "Tool length compensation +"
+G49 = "Tool length compensation cancel"
+G54 = "Work offset 1"
+G80 = "Canned cycle cancel"
+G81 = "Drilling cycle"
+G90 = "Absolute programming"
+G91 = "Incremental programming"
+G94 = "Feed per minute"
+G95 = "Feed per revolution"
+
+[mcodes]
+M00 = "Program stop"
+M01 = "Optional stop"
+M02 = "Program end"
+M03 = "Spindle on CW"
+M04 = "Spindle on CCW"
+M05 = "Spindle stop"
+M06 = "Tool change"
+M08 = "Coolant on"
+M09 = "Coolant off"
+M30 = "Program end and rewind"

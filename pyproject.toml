@@ -1,0 +1,103 @@
+[project]
+name = "nctab"
+version = "0.1.0"
+description = "Terminal NC/G-code editor and toolkit"
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "0ndrec" }]
+keywords = ["cnc", "gcode", "nc", "tui", "fanuc", "iso"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Manufacturing",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Text Editors",
+]
+dependencies = [
+  "textual>=8.2",
+  "cyclopts>=4.25",
+  "pydantic>=2.12",
+  "pydantic-settings>=2.12",
+  "platformdirs>=4.4",
+]
+
+[project.optional-dependencies]
+dnc = ["pyserial>=3.5"]
+
+[project.scripts]
+nctab = "nctab.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/0ndrec/nctab"
+Issues = "https://github.com/0ndrec/nctab/issues"
+
+[build-system]
+requires = ["uv_build>=0.12,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4",
+  "pytest-cov>=6.0",
+  "hypothesis>=6.100",
+  "ruff>=0.13",
+  "ty>=0.0.1a1",
+  "pytest-asyncio>=1.4.0",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "E", "F", "W",   # pycodestyle / pyflakes
+  "I",             # isort
+  "UP",            # pyupgrade
+  "B",             # bugbear
+  "SIM",           # simplify
+  "RUF",           # ruff-specific
+  "TID",           # tidy imports (layer boundaries)
+  "PL",            # pylint subset
+]
+ignore = [
+  "PLR0913",  # too many arguments — CLI commands legitimately have many flags
+  "PLR0911", "PLR0912", "PLR0915",  # too many returns/branches/statements — tokenisers are branchy
+  "PLR0917",  # too many positional args — geometry helpers take coordinate tuples
+  "PLR2004",  # magic values — G-code is full of them
+  "RUF001", "RUF002", "RUF003",  # cyrillic in strings/comments/docstrings is intended
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["PLR"]
+# Textual declares BINDINGS/COMMANDS as plain class lists; deferred imports keep
+# the CLI fast and avoid import cycles between the app and its widgets.
+"src/nctab/app.py" = ["RUF012", "PLC0415"]
+"src/nctab/tui/*.py" = ["RUF012", "PLC0415"]
+"src/nctab/cli.py" = ["PLC0415"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+asyncio_mode = "auto"
+markers = ["slow: long-running tests"]
+
+[tool.coverage.run]
+source = ["nctab"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:", "raise NotImplementedError"]

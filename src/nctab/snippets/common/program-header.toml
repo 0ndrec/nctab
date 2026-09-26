@@ -1,0 +1,32 @@
+id = "program-header"
+title = "Program header"
+description = "Program number, safe start block and work offset."
+body = """
+%
+O{O} ({NAME})
+G21 G17 G40 G49 G80 G90
+G28 G91 Z0
+G90 {WCS}
+"""
+
+[[fields]]
+name = "O"
+label = "Program number"
+type = "int"
+min = 1
+max = 9999
+default = 1000
+format = "04d"
+
+[[fields]]
+name = "NAME"
+label = "Part name"
+type = "str"
+default = "PART"
+
+[[fields]]
+name = "WCS"
+label = "Work offset"
+type = "choice"
+choices = ["G54", "G55", "G56", "G57", "G58", "G59"]
+default = "G54"

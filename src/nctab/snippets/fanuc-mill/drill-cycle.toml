@@ -1,0 +1,27 @@
+id = "drill-cycle"
+title = "Drilling cycle G81"
+description = "Simple drilling cycle with a retract plane."
+profile = "fanuc-mill"
+body = """
+G99 G81 Z{Z} R{R} F{F}
+G80
+"""
+
+[[fields]]
+name = "Z"
+label = "Depth"
+type = "float"
+default = -10.0
+
+[[fields]]
+name = "R"
+label = "Retract plane"
+type = "float"
+default = 2.0
+
+[[fields]]
+name = "F"
+label = "Feed"
+type = "int"
+min = 1
+default = 150

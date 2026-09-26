@@ -1,0 +1,11 @@
+id = "program-footer"
+title = "Program footer"
+description = "Coolant off, spindle stop, return to reference and end."
+body = """
+M09
+M05
+G28 G91 Z0
+G90
+M30
+%
+"""
