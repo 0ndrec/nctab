@@ -1,0 +1,72 @@
+name: Bug report
+description: Something does not work as documented
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please remove proprietary data from any NC program you attach.
+        Security issues must be reported privately — see SECURITY.md.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Exact command(s) or key presses.
+      placeholder: |
+        nctab shift part.nc --z -0.02 -p fanuc-mill
+    validations:
+      required: true
+  - type: textarea
+    id: program
+    attributes:
+      label: Minimal NC program
+      description: The smallest program that shows the problem.
+      render: gcode
+  - type: textarea
+    id: output
+    attributes:
+      label: Actual output
+      description: Error message, diff or `--json` output.
+      render: shell
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - CLI
+        - TUI editor
+        - Parser / round-trip
+        - Check rules
+        - Diff
+        - Machine profiles
+        - Snippets
+        - Configuration
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: nctab version
+      description: Output of `nctab --version`.
+    validations:
+      required: true
+  - type: input
+    id: profile
+    attributes:
+      label: Machine profile
+      placeholder: fanuc-mill / custom
+  - type: input
+    id: environment
+    attributes:
+      label: OS and terminal
+      placeholder: Windows 11, Windows Terminal
+    validations:
+      required: true

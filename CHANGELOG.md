@@ -1,0 +1,28 @@
+# Changelog
+
+All notable changes to this project are documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+
+- Contributor documentation, issue and pull request templates.
+
+## [0.1.0]
+
+### Added
+
+- TUI editor with outline, file browser, inspector, find & replace, bookmarks,
+  snippets and command palette.
+- CLI commands: `stats`, `tools`, `check`, `find`, `replace`, `renumber`, `strip`,
+  `case`, `shift`, `math`, `feeds`, `scale`, `mirror`, `rotate`, `snippets`, `diff`,
+  `profiles`.
+- Machine profiles: `fanuc-mill`, `fanuc-turn`, `haas-mill`, `siemens-iso`,
+  `generic-iso`.
+- Layered configuration and versioned JSON output.
+
+[Unreleased]: https://github.com/0ndrec/nctab/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/0ndrec/nctab/releases/tag/v0.1.0
