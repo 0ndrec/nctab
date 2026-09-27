@@ -6,9 +6,9 @@ Run `nctab --help` or `nctab COMMAND --help` for the full list of options.
 
 | Option | Applies to | Meaning |
 |---|---|---|
-| `-p`, `--profile` | all | Machine profile id or path to a profile `.toml` |
-| `--json` | all | Machine-readable output (versioned, `schema_version`) |
-| `-q`, `--quiet` | all | Suppress informational output |
+| `-p`, `--profile` | all except `profiles` | Machine profile id or path to a profile `.toml` |
+| `--json` | all except `profiles` | Machine-readable output (versioned, `schema_version`) |
+| `-q`, `--quiet` | all except `profiles` | Suppress informational output |
 | `-i`, `--in-place` | transforms | Overwrite the input file |
 | `-o`, `--output` | transforms | Write to another path |
 | `--dry-run` | transforms | Only show the diff, even with `-i` / `-o` |
