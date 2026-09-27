@@ -1,6 +1,6 @@
 [project]
 name = "nctab"
-version = "0.1.0"
+version = "0.1.1"
 description = "Terminal NC/G-code editor and toolkit"
 readme = "README.md"
 requires-python = ">=3.13"
@@ -34,7 +34,10 @@ nctab = "nctab.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/0ndrec/nctab"
+Documentation = "https://github.com/0ndrec/nctab/tree/main/docs"
+Source = "https://github.com/0ndrec/nctab"
 Issues = "https://github.com/0ndrec/nctab/issues"
+Changelog = "https://github.com/0ndrec/nctab/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["uv_build>=0.12,<0.13"]

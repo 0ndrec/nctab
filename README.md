@@ -7,7 +7,7 @@
 [![CI](https://github.com/0ndrec/nctab/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/0ndrec/nctab/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/nctab.svg)](https://pypi.org/project/nctab/)
 [![Python](https://img.shields.io/pypi/pyversions/nctab.svg)](https://pypi.org/project/nctab/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/0ndrec/nctab/blob/main/LICENSE)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
@@ -56,18 +56,18 @@ nctab diff --ignore-n old.nc new.nc        # compare ignoring block numbers
 
 | Guide | Contents |
 |---|---|
-| [Editor](docs/editor.md) | Layout, key bindings, find & replace |
-| [CLI reference](docs/cli.md) | All commands, ranges, JSON output, exit codes |
-| [Configuration](docs/configuration.md) | Config layers, machine profiles, snippets |
-| [Architecture](docs/architecture.md) | Package layout and design rules |
-| [Development](docs/development.md) | Setup, testing, releasing |
+| [Editor](https://github.com/0ndrec/nctab/blob/main/docs/editor.md) | Layout, key bindings, find & replace |
+| [CLI reference](https://github.com/0ndrec/nctab/blob/main/docs/cli.md) | All commands, ranges, JSON output, exit codes |
+| [Configuration](https://github.com/0ndrec/nctab/blob/main/docs/configuration.md) | Config layers, machine profiles, snippets |
+| [Architecture](https://github.com/0ndrec/nctab/blob/main/docs/architecture.md) | Package layout and design rules |
+| [Development](https://github.com/0ndrec/nctab/blob/main/docs/development.md) | Setup, testing, releasing |
 
 ## Contributing
 
-Contributions are welcome — please read [CONTRIBUTING.md](CONTRIBUTING.md) and the
-[Code of Conduct](CODE_OF_CONDUCT.md). Security issues: see [SECURITY.md](SECURITY.md).
-Changes are tracked in [CHANGELOG.md](CHANGELOG.md).
+Contributions are welcome — please read [CONTRIBUTING.md](https://github.com/0ndrec/nctab/blob/main/CONTRIBUTING.md) and the
+[Code of Conduct](https://github.com/0ndrec/nctab/blob/main/CODE_OF_CONDUCT.md). Security issues: see [SECURITY.md](https://github.com/0ndrec/nctab/blob/main/SECURITY.md).
+Changes are tracked in [CHANGELOG.md](https://github.com/0ndrec/nctab/blob/main/CHANGELOG.md).
 
 ## License
 
-[MIT](LICENSE) © 0ndrec
+[MIT](https://github.com/0ndrec/nctab/blob/main/LICENSE) © 0ndrec
