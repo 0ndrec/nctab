@@ -1,7 +1,6 @@
 # nctab
 
-Terminal NC/G-code editor and toolkit for CNC programmers who work over SSH, in tmux,
-on a shop-floor PC without a Windows GUI.
+TUI NC/G-code editor and toolkit for CNC programmers.
 
 ```bash
 uvx nctab stats part.nc
@@ -16,13 +15,8 @@ byte for byte.
 
 ## Demo
 
-Watch the demo on YouTube: https://youtu.be/z4E63TLAZSk
 
-Or view the embedded video below:
-<video src="content/nctab.mp4" controls muted width="100%" playsinline preload="metadata"></video>
-
-If the player does not load, [watch the demo video](content/nctab.mp4).
-
+[![Watch the video](https://raw.githubusercontent.com/0ndrec/nctab/main/content/thm.jpg)](https://raw.githubusercontent.com/0ndrec/nctab/main/content/nctab.mp4)
 
 ## Editor
 
