@@ -16,7 +16,7 @@ byte for byte.
 ## Demo
 
 
-[![Watch the video](https://raw.githubusercontent.com/0ndrec/nctab/main/content/thm.jpg)](https://raw.githubusercontent.com/0ndrec/nctab/main/content/nctab.mp4)
+[![Watch the video](https://raw.githubusercontent.com/0ndrec/nctab/main/content/thm.png)](https://raw.githubusercontent.com/0ndrec/nctab/main/content/nctab.mp4)
 
 ## Editor
 
