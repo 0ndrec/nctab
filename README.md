@@ -6,6 +6,7 @@
 
 [![CI](https://github.com/0ndrec/nctab/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/0ndrec/nctab/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/nctab.svg)](https://pypi.org/project/nctab/)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/nctab?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/nctab)
 [![Python](https://img.shields.io/pypi/pyversions/nctab.svg)](https://pypi.org/project/nctab/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/0ndrec/nctab/blob/main/LICENSE)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
