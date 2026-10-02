@@ -21,7 +21,9 @@ nctab part.nc          # the same thing
 - **Editor** — always in insert mode, so no binding is a plain character.
 - **Inspector** — decodes the word under the cursor and shows the modal state in
   effect on that line. Its descriptions come from the active machine profile, so a
-  custom profile teaches it new codes.
+  custom profile teaches it new codes. The top line is the spindle indicator:
+  `↻ CW` after `M03`, `↺ CCW` after `M04`, `■ STOP` after `M05`, `M19`, `M02` or
+  `M30`, followed by the active `S` value.
 
 Opening another file is refused while the buffer has unsaved changes: save with
 `Ctrl+S`, or press `Ctrl+R` to discard them and open anyway.

@@ -54,6 +54,11 @@ def test_tool_spindle_coolant_feed(fanuc: Profile) -> None:
     assert c.state.spindle == "off"
 
 
+def test_spindle_direction_and_stops(fanuc: Profile) -> None:
+    lines = run("M04\nM19\nM03\nM30\nM03\nM02", fanuc)
+    assert [ls.state.spindle for ls in lines] == ["ccw", "off", "cw", "off", "cw", "off"]
+
+
 def test_coolant(fanuc: Profile) -> None:
     a, b = run("M08\nM09", fanuc)
     assert a.state.coolant is True and b.state.coolant is False

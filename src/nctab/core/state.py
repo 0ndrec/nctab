@@ -22,6 +22,8 @@ from nctab.profiles.loader import Profile
 MOTION_CODES = frozenset({0, 1, 2, 3})
 CANNED_CYCLES = frozenset({73, 74, 76, 81, 82, 83, 84, 85, 86, 87, 88, 89})
 _HOME_CODES = frozenset({28, 30, 53})
+# M05 stop, M19 orientation, M02/M30 program end: the spindle is not turning after any of them
+_SPINDLE_STOP_CODES = frozenset({2, 5, 19, 30})
 
 Spindle = Literal["cw", "ccw", "off"]
 
@@ -156,7 +158,7 @@ def apply_line(state: ModalState, line: Line, profile: Profile) -> ModalState:
                 spindle = "cw"
             elif code == 4:
                 spindle = "ccw"
-            elif code == 5:
+            elif code in _SPINDLE_STOP_CODES:
                 spindle = "off"
             elif code in (7, 8):
                 coolant = True

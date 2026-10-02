@@ -47,6 +47,22 @@ Screen {
     margin-bottom: 1;
 }
 
+#inspector-spindle {
+    text-style: bold;
+}
+
+#inspector-spindle.-cw {
+    color: $success;
+}
+
+#inspector-spindle.-ccw {
+    color: $warning;
+}
+
+#inspector-spindle.-off {
+    color: $text-muted;
+}
+
 #status {
     height: 1;
     background: $panel;

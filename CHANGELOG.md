@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Spindle indicator in the editor's inspector: CW / CCW / STOP and the active
+  `S` value for the cursor's line.
+
+### Changed
+
+- `M19` (orientation) and `M02` / `M30` (program end) now count as spindle stop
+  in the modal state, so `check` no longer treats the spindle as running after
+  them.
+
 ## [0.1.1]
 
 ### Added

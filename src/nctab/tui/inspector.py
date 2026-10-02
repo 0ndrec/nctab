@@ -15,30 +15,59 @@ from textual.containers import VerticalScroll
 from textual.widgets import Static
 
 from nctab.core.model import Line, Word
-from nctab.core.state import LineState, ModalState, g_int
+from nctab.core.state import LineState, ModalState, Spindle, g_int
 from nctab.profiles.loader import Profile
+
+SPINDLE_LABELS: dict[Spindle, str] = {
+    "cw": "↻ CW",
+    "ccw": "↺ CCW",
+    "off": "■ STOP",
+}
+
+
+class SpindleIndicator(Static):
+    """Spindle direction in effect on the cursor's line: CW, CCW or stopped.
+
+    The CSS class (``-cw`` / ``-ccw`` / ``-off``) carries the colour, so a theme
+    can restyle it.
+    """
+
+    def set_state(self, state: ModalState | None) -> None:
+        for spindle in SPINDLE_LABELS:
+            self.set_class(state is not None and state.spindle == spindle, f"-{spindle}")
+        if state is None:
+            self.update("")
+            return
+        text = RichText(f"Spindle {SPINDLE_LABELS[state.spindle]}", end="")
+        if state.speed is not None:
+            text.append(f"  S{state.speed}")
+        self.update(text)
 
 
 class Inspector(VerticalScroll):
     """Decodes the word under the cursor and the state in effect on its line."""
 
     def compose(self) -> ComposeResult:
+        yield SpindleIndicator(id="inspector-spindle")
         yield Static(id="inspector-word")
         yield Static(id="inspector-state")
         yield Static(id="inspector-position")
 
     def update(self, profile: Profile, ls: LineState | None, column: int) -> None:
+        spindle_panel = self.query_one("#inspector-spindle", SpindleIndicator)
         word_panel = self.query_one("#inspector-word", Static)
         state_panel = self.query_one("#inspector-state", Static)
         pos_panel = self.query_one("#inspector-position", Static)
 
         if ls is None:
+            spindle_panel.set_state(None)
             word_panel.update("")
             state_panel.update("")
             pos_panel.update("")
             return
 
         word = word_at(ls.line, column)
+        spindle_panel.set_state(ls.state)
         word_panel.update(_describe_word(word, profile) if word else RichText("", end=""))
         state_panel.update(_describe_state(ls.state, profile))
         pos_panel.update(_describe_position(ls.state))
@@ -112,8 +141,6 @@ def _describe_state(state: ModalState, profile: Profile) -> Table:
         table.add_row("Tool", f"T{state.tool}" + (f" H{state.h}" if state.h is not None else ""))
     if state.feed is not None:
         table.add_row("Feed", f"{state.feed}")
-    if state.speed is not None:
-        table.add_row("Speed", f"{state.speed} {state.spindle}")
     if state.coolant:
         table.add_row("Coolant", "on")
     if state.units:

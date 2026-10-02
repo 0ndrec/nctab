@@ -16,7 +16,7 @@ from nctab.ops.renumber import RenumberSpec, renumber
 from nctab.profiles.loader import Profile, load_profile
 from nctab.tui import highlight as hl
 from nctab.tui.dialogs import TransformRequest
-from nctab.tui.inspector import word_at
+from nctab.tui.inspector import SpindleIndicator, word_at
 from nctab.tui.outline import HEADER_LABEL, build_outline
 from nctab.tui.search import SearchState
 from tests.conftest import GOLDEN_DIR
@@ -373,6 +373,22 @@ async def test_inspector_describes_the_word_under_the_cursor(work: Path) -> None
         assert state is not None
         assert state.tool == 1
         assert state.feed is not None
+
+
+async def test_spindle_indicator_follows_the_cursor(work: Path) -> None:
+    app = NctabApp(path=work)
+    async with app.run_test() as pilot:
+        indicator = app.query_one("#inspector-spindle", SpindleIndicator)
+        for line, cls, label in (
+            (10, "-off", "■ STOP"),  # N40 T1 M06: not started yet
+            (15, "-cw", "↻ CW  S4500"),  # N90 G01 Z-3. F300
+            (29, "-off", "■ STOP  S4500"),  # N230 M05
+        ):
+            app.editor.goto_line(line)
+            await pilot.pause()
+            app.refresh_inspector()
+            assert indicator.has_class(cls)
+            assert label in str(indicator.content)
 
 
 async def test_opening_a_missing_file_is_reported(tmp_path: Path) -> None:
